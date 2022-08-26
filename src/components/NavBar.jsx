@@ -7,16 +7,13 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import Icon from './Icon';
 import logo from '../assets/logo.png'
+import CartWidget from './CartWidget';
 
 const pages = ['Productos', 'Ofertas', 'Nosotros'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function NavBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,10 +35,10 @@ export default function NavBar() {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" color='secondary'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                <img src={logo} alt='logo'/>
+                    <img src={logo} alt='logo'/>
                     <Typography
                         variant="h6"
                         noWrap
@@ -114,7 +111,6 @@ export default function NavBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
@@ -127,9 +123,8 @@ export default function NavBar() {
                             </Button>
                         ))}
                     </Box>
-
                     <Box sx={{ flexGrow: 0 }}>
-                        <Icon items={5}/>
+                        <CartWidget items = {5}></CartWidget>
                     </Box>
                 </Toolbar>
             </Container>
