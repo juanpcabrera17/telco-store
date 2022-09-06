@@ -5,7 +5,7 @@ const Item = ({ product }) => {
     return (
         <div>
             <div>
-                <img src={product.img}></img>
+                <img /* src={product.img} */></img>
                 {product.nombre}
                 <Button variant="contained"
                     onClick={() => {

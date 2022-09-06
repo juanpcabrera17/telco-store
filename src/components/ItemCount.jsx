@@ -16,6 +16,10 @@ export default function ItemCount({ stock, initial, onAdd }) {
         setContador(initial);
     }, [])
 
+    const [alert, setAlert] = useState()
+
+
+
     return (
         <Stack direction="row" spacing={1}>
             <IconButton aria-label="delete"
@@ -33,7 +37,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
                     if (contador < stock) {
                         setContador(contador + 1);
                     } else {
-                        Alerts() //?
+                        setAlert(Alerts)
                     }
                 }}
             >

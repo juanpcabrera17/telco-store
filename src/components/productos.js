@@ -2,30 +2,30 @@ const productos = [
     {
         id: 1,
         nombre: 'Antena parabolica',
-        descripcion: 'Antena Parabolica Ubiquiti 5ghz 25dbi',
+        descripcion: 'Ubiquiti 5ghz 25dbi',
         precio: 40000,
-        img: '../assets/antena-1'
+        img: 'https://i.ibb.co/ZSRj4nw/antena-1.png'
     },
     {
         id: 2,
         nombre: 'Antena WiFi',
-        descripcion: 'Antena Wifi Tp-Link 5ghz 150mbps 23dbi',
+        descripcion: 'Tp-Link 5ghz 150mbps 23dbi',
         precio: 10000,
-        img: 'antena-2'
+        img: 'https://i.ibb.co/0nNC87B/antena-2.png'
     },
     {
         id: 3,
         nombre: 'Router WiFi',
-        descripcion: 'Router WiFi MikroTik 4 interfaces',
+        descripcion: 'MikroTik 4 interfaces',
         precio: 9000,
-        img: 'router-1'
+        img: 'https://i.ibb.co/TgDKLYD/router-1.png'
     },
     {
         id: 4,
         nombre: 'Switch',
-        descripcion: 'Switch Tp-Link 24 puertos 48Gbps',
+        descripcion: 'Tp-Link 24 puertos 48Gbps',
         precio: 20000,
-        img: 'switch-1'
+        img: 'https://i.ibb.co/7yfnTJD/switch-1.png'
     },
 ]
 

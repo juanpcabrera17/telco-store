@@ -4,6 +4,8 @@ import { ItemListContainer } from './components/ItemListContainer';
 import { ThemeProvider } from '@emotion/react';
 import theme from './MuiTheme';
 import ItemCount from './components/ItemCount';
+import FetchContainer from './test/FetchContainer';
+import { ItemDetailContainer } from './components/ItemDetailContainer';
 
 
 function onAdd(){
@@ -18,8 +20,11 @@ const greeting = "hola, como estas?"
     <div>
        <NavBar/>
        <ItemListContainer greeting = {greeting}/>
-       <ItemCount stock = '5' initial = '2' onAdd = {onAdd}/>
+       <ItemCount stock = {5} initial = {2} onAdd = {onAdd}/>
     </div>
+  
+    <ItemDetailContainer/>
+    {/* <FetchContainer/> */}
     </ThemeProvider>
   );
 }
