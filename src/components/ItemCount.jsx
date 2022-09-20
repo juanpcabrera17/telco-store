@@ -16,12 +16,11 @@ export default function ItemCount({ stock, initial, onAdd }) {
         setContador(initial);
     }, [])
 
-    const [alert, setAlert] = useState()
-
-
+    const [alert, setAlert] = useState(false)
 
     return (
-        <Stack direction="row" spacing={1}>
+        <Stack>
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
             <IconButton aria-label="delete"
                 onClick={() => {
                     if (contador > '0') {
@@ -43,13 +42,16 @@ export default function ItemCount({ stock, initial, onAdd }) {
             >
                 <AddIcon />
             </IconButton>
-            <Button variant="contained"
+            
+            </Stack>
+            {alert}
+            <Button variant="contained" 
                 onClick={() => {
                     onAdd();
                 }}
             >
                 Agregar al carrito
             </Button>
-        </Stack>
-    );
+            </Stack>
+            );
 }

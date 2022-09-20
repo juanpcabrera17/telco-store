@@ -12,8 +12,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import logo from '../assets/logo.png'
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
-const pages = ['Productos', 'Ofertas', 'Nosotros'];
 
 export default function NavBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,7 +38,7 @@ export default function NavBar() {
         <AppBar position="static" color='secondary'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <img src={logo} alt='logo'/>
+                    <Link to="/"><img src={logo} alt='logo' /></Link>
                     <Typography
                         variant="h6"
                         noWrap
@@ -87,14 +87,51 @@ export default function NavBar() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
+                             <Link to="/category/antenas" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
+                            /* key={page} */
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'inherit', display: 'block' }}
+                        >
+                            <Typography textAlign="center">Antenas</Typography>
+                        </Button></Link>
+
+                        <Link to="/category/routers" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
+                            /* key={page} */
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'inherit', display: 'block' }}
+                        >
+                            <Typography textAlign="center">Routers</Typography>
+                        </Button></Link>
+
+                        <Link to="/category/switches" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
+                            /* key={page} */
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'inherit', display: 'block' }}
+                        >
+                            <Typography textAlign="center">Switches</Typography>
+                        </Button></Link>
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="a"
+                        href="/"
+                        sx={{
+                            ml: 3,
+                            mr: 2,
+                            display: { xs: 'flex', md: 'none' },
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        Telco-Store
+                    </Typography>
+                    
                     <Typography
                         variant="h5"
                         noWrap
@@ -113,18 +150,36 @@ export default function NavBar() {
                     >
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'inherit', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
-                        ))}
+            
+                    <Link to="/category/antenas" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
+                          
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'inherit', display: 'block' }}
+                        >
+                            <Typography textAlign="center">Antenas</Typography>
+                        </Button></Link>
+
+                        <Link to="/category/routers" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
+                           
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'inherit', display: 'block' }}
+                        >
+                            <Typography textAlign="center">Routers</Typography>
+                        </Button></Link>
+
+                        <Link to="/category/switches" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
+                          
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'inherit', display: 'block' }}
+                        >
+                            <Typography textAlign="center">Switches</Typography>
+                        </Button></Link>
+
+
+                        
                     </Box>
                     <Box sx={{ flexGrow: 0 }}>
-                        <CartWidget items = {5}></CartWidget>
+                        <CartWidget items={5}></CartWidget>
                     </Box>
                 </Toolbar>
             </Container>
