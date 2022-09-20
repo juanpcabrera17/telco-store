@@ -42,19 +42,6 @@ export const ItemListContainer = (props) => {
 	}, [idcategory]);
 
 
-	/* useEffect(()=>{
-		if (!idcategory) {
-			//HOME
-			setProducts(productosHC);
-		  } else {
-			//EN UNA CATEGORIA PUNTUAL
-			setProducts(productosHC.filter((product) => product.idcategory == idcategory));
-		  }
-
-	},[idcategory]); */
-
-
-
 	console.log(listProductos)
 
 	return (

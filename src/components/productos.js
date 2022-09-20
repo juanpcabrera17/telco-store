@@ -2,7 +2,7 @@ const productos = [
     {
         idproduct: 1,
         nombre: 'Antena Parabolica Ubiquiti Rd-5g30-lw',
-        descripcion: 'Ubiquiti 5ghz 25dbi',
+        descripcion: 'La RocketDish LW representa un gran avance en la relación precio/rendimiento para la tecnología de antenas backhaul. Es por ello que la RD-5G30-LW es una Antena Parabólica Puente de Clase Portadora 2X2 con novedosas características; Innovador Diseño Industrial Con un peso de solo 7.4 Kg., la RocketDish LW presenta un diseño mecánico robusto debido a sus componentes industriales ligeros, hechos para soportar las duras condiciones exteriores. Además el diseño de su plato reflector genera una excelente directividad de haz.',
         precio: 40000,
         img: 'https://i.ibb.co/ZSRj4nw/antena-1.png',
         idcategory: 'antenas'

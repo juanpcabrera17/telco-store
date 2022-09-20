@@ -8,50 +8,46 @@ import { useState, useEffect } from 'react';
 import Alerts from './Alerts';
 
 
+export default function ItemCount({ stock, initial, onAdd, contador, setContador }) {
 
-export default function ItemCount({ stock, initial, onAdd }) {
-    const [contador, setContador] = useState(0);
+    const sumar = () => {
+        if (contador < stock) {
+            setContador(contador + 1);
+        } else {
+            setAlert(Alerts)
+        }
+    }
 
-    useEffect(() => {
-        setContador(initial);
-    }, [])
+    const restar = () => {
+        if (contador > initial) {
+            setContador(contador - 1);
+        }
+    }
 
     const [alert, setAlert] = useState(false)
 
     return (
         <Stack>
-        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
-            <IconButton aria-label="delete"
-                onClick={() => {
-                    if (contador > '0') {
-                        setContador(contador - 1);
-                    }
-                }}
-            >
-                <RemoveIcon />
-            </IconButton>
-            <span>{contador}</span>
-            <IconButton aria-label="add"
-                onClick={() => {
-                    if (contador < stock) {
-                        setContador(contador + 1);
-                    } else {
-                        setAlert(Alerts)
-                    }
-                }}
-            >
-                <AddIcon />
-            </IconButton>
-            
+            <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
+                <IconButton aria-label="delete"
+                    onClick={restar}
+                >
+                    <RemoveIcon />
+                </IconButton>
+                <span>{contador}</span>
+                <IconButton aria-label="add"
+                    onClick={sumar}
+                >
+                    <AddIcon />
+                </IconButton>
+
             </Stack>
             {alert}
-            <Button variant="contained" 
-                onClick={() => {
-                    onAdd();
-                }}
+            <Button variant="contained"
+                onClick={onAdd}
             >
                 Agregar al carrito
             </Button>
-            </Stack>
-            );
+        </Stack>
+    );
 }

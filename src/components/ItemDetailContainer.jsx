@@ -8,9 +8,6 @@ import {useParams} from 'react-router-dom';
 export const ItemDetailContainer = () => {
 
 
-	//promesa q a los 2 segundos devuelve un producto, cuando lo devuelve se lo pasa a itemdetail, detalle de un item puntual
-
-	//const { greeting } = props //desestructuracion de greeting
 	const [detalleItem, setDetalleItem] = useState({});
 	const [loading, setLoading] = useState(true);
 
@@ -27,7 +24,6 @@ export const ItemDetailContainer = () => {
 
 		promesaDetalle
 			.then((res) => {
-				/* setDetalleItem(res); */
 				setDetalleItem(productos.find((product)=> product.idproduct == idproduct));
 			})
 			.catch((err) => {

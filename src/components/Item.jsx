@@ -1,27 +1,22 @@
 import React from 'react'
-import Button from '@mui/material/Button';
-
-
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
-
-function onAdd(){
-	//?
-}
+/* import { onAdd } from './ItemDetail'; */
+import { useState, useEffect } from 'react';
 
 const Item = ({ product }) => {
 
 	const {idproduct, nombre, descripcion, precio, img, idcaregory} = product;
 
 	let direccion = "/product/";
+
+	const [contador, setContador] = useState(1);
 
 	return (
 		<Box p ={2}>
@@ -44,34 +39,12 @@ const Item = ({ product }) => {
 					alt= {nombre}
 					sx={{objectFit: "scale-down" }}
 				/>
-				{/* <Typography variant="body2">
-					<br />
-					{'"a benevolent smile"'}
-				</Typography> */}
 			</CardContent>
 			</CardActionArea></Link>
-			<ItemCount stock = {5} initial = {2} onAdd = {onAdd}/>
+			<ItemCount stock = {5} initial = {2} /* onAdd = {onAdd} */ contador={contador} setContador={setContador}/>
 		</Card>
 		</Box>
 	);
 }
 
 export default Item;
-      /*   <div>
-	  <div>
-		  <img  src={product.img} ></img>
-		  {product.nombre}
-		  <Button variant="contained"
-			  onClick={() => {
-				  <p>{product.descripcion}</p>
-			  }}
-		  >
-			  Ver más
-		  </Button>
-	  </div>
-	  <div>
-		  {product.id}
-	  </div>
-  </div>
-)
-} */
