@@ -7,16 +7,37 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
-/* import { onAdd } from './ItemDetail'; */
 import { useState, useEffect } from 'react';
+
+import { useCart } from '../context/CartContext'
 
 const Item = ({ product }) => {
 
-	const {idproduct, nombre, descripcion, precio, img, idcaregory} = product;
+	const {idproduct, nombre, descripcion, precio, img, idcategory} = product;
 
 	let direccion = "/product/";
 
+	/// Como evito repetir este codigo que ya esta en ItemDetail?
 	const [contador, setContador] = useState(1);
+	const {addItem}=useCart()
+	const [compra, setCompra] = useState(false)
+	const onAdd = () => {
+
+        console.log(`compraste ${contador} items del producto`)
+        let compra = {
+            idproduct,
+			nombre,
+			precio,
+			img,
+            idcategory,
+			cantidad: contador
+		}
+        setCompra(true)
+        addItem(compra)
+    }
+
+	//fin codigo repetido
+
 
 	return (
 		<Box p ={2}>
@@ -41,7 +62,7 @@ const Item = ({ product }) => {
 				/>
 			</CardContent>
 			</CardActionArea></Link>
-			<ItemCount stock = {5} initial = {2} /* onAdd = {onAdd} */ contador={contador} setContador={setContador}/>
+			<ItemCount stock = {5} initial = {2} onAdd = {onAdd} contador={contador} setContador={setContador}/>
 		</Card>
 		</Box>
 	);

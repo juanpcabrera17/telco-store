@@ -8,16 +8,27 @@ import ItemCount from './ItemCount';
 import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-
+import { useCart } from '../context/CartContext'
 
 const ItemDetail = ({ detalleItem }) => {
     const [contador, setContador] = useState(1);
+    const {idproduct, nombre, descripcion, precio, img, idcategory } = detalleItem
     const [compra, setCompra] = useState(false)
+    const {addItem}=useCart()
 
-    function onAdd(contador) {
+    const onAdd = () => {
 
         console.log(`compraste ${contador} items del producto`)
+        let compra = {
+            idproduct,
+			nombre,
+			precio,
+			img,
+            idcategory,
+			cantidad: contador
+		}
         setCompra(true)
+        addItem(compra)
     }
 
     return (
@@ -29,19 +40,19 @@ const ItemDetail = ({ detalleItem }) => {
                             component="img"
                             height="500"
                             width="100"
-                            image={detalleItem.img}
-                            alt={detalleItem.nombre}
+                            image={img}
+                            alt={nombre}
                             sx={{ width: '40%', objectFit: "scale-down" }}
                         />
                         <Stack direction="column" backgroundColor="#FFE5C1" p={20}>
                             <Typography variant="h5" component="div" align="right">
-                                {detalleItem.nombre}
+                                {nombre}
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" mb={4}>
-                                Precio: ${detalleItem.precio}
+                                Precio: ${precio}
                             </Typography>
                             <Typography variant="body1" paragraph>
-                                {detalleItem.descripcion}
+                                {descripcion}
                             </Typography>
 
                             {!compra

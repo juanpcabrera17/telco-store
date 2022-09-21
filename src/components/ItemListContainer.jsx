@@ -16,7 +16,7 @@ export const ItemListContainer = (props) => {
 
 	const {idcategory, idproduct} = useParams();
 
-	console.log(idcategory, idproduct)
+	console.log('categoria: ', idcategory, 'idproducto: ', idproduct)
 
 	useEffect(() => {
 		let promesaProductos = new Promise((resolve, reject) => {

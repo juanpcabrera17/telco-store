@@ -9,24 +9,27 @@ import { ItemDetailContainer } from './components/ItemDetailContainer';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Cart } from './components/Cart';
+import { CartProvider } from './context/CartContext';
 
 
 function App() {
 const greeting = "Bienvenido a Telco-Store, tu principal proveedor de insumos de telecomunicaciones"
 
   return (
-    <ThemeProvider theme = {theme}>
-    	<BrowserRouter>
-			{/* //Componentes presentes en todas las rutas */}
-			<NavBar/>
-    		<Routes>
-    			<Route path="/" element={<ItemListContainer/>}/>
-				<Route path="/category/:idcategory" element={<ItemListContainer/>}/>
-				<Route path="/product/:idproduct" element={<ItemDetailContainer/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-    		</Routes>
-    	</BrowserRouter>
-    </ThemeProvider>
+    <CartProvider>
+    	<ThemeProvider theme = {theme}>
+    		<BrowserRouter>
+				{/* //Componentes presentes en todas las rutas */}
+				<NavBar/>
+    			<Routes>
+    				<Route path="/" element={<ItemListContainer/>}/>
+					<Route path="/category/:idcategory" element={<ItemListContainer/>}/>
+					<Route path="/product/:idproduct" element={<ItemDetailContainer/>}/>
+    	    <Route path="/cart" element={<Cart/>}/>
+    			</Routes>
+    		</BrowserRouter>
+   		</ThemeProvider>
+	</CartProvider>
 
 
    /* 
