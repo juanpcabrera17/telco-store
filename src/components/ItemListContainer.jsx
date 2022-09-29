@@ -1,12 +1,12 @@
 import React from 'react'
 import ItemList from './ItemList'
 import { useState, useEffect } from 'react';
-import productos from './productos';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-
 import {useParams} from 'react-router-dom';
+import {collection, getDocs, query, where} from 'firebase/firestore'
+import { db } from '../firebase/firebase';
 
 export const ItemListContainer = (props) => {
 
@@ -18,30 +18,28 @@ export const ItemListContainer = (props) => {
 
 	console.log('categoria: ', idcategory, 'idproducto: ', idproduct)
 
-	useEffect(() => {
-		let promesaProductos = new Promise((resolve, reject) => {
-			setTimeout(() => {
-				resolve(productos);
-			}, 2000);
-		});
-
-		promesaProductos
-			.then((res) => {
-				if (!idcategory){
-					setlistProductos(res);
-				} else {
-					setlistProductos(productos.filter((product) => product.idcategory == idcategory));
+	useEffect(()=>{
+		const collectionRef = idcategory ? query(collection(db, "products"), where("idcategory", "==", idcategory)) : collection(db, "products")
+		getDocs(collectionRef)
+		.then((result)=>{
+			const objetoLimpio = result.docs.map((product)=>{
+				return{
+					id: product.id,
+					...product.data()
 				}
 			})
-			.catch((err) => {
-				console.log("No se pudieron mostrar los productos")
-			})
-			.finally(() => {
-				setLoading(false);
-			});
-	}, [idcategory]);
-
-
+			setlistProductos(objetoLimpio)
+		})
+		.catch((err) => {
+			console.log("No se pudieron mostrar los productos")
+		})
+		.finally(() => {
+			setLoading(false);
+			
+		});
+	},[])
+	
+	
 	console.log(listProductos)
 
 	return (

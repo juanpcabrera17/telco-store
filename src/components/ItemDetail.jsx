@@ -5,14 +5,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import ItemCount from './ItemCount';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext'
 
 const ItemDetail = ({ detalleItem }) => {
     const [contador, setContador] = useState(1);
-    const {idproduct, nombre, descripcion, precio, img, idcategory } = detalleItem
+    const {id, nombre, descripcion, precio, img, idcategory, stock } = detalleItem
     const [compra, setCompra] = useState(false)
     const {addItem}=useCart()
 
@@ -20,11 +20,12 @@ const ItemDetail = ({ detalleItem }) => {
 
         console.log(`compraste ${contador} items del producto`)
         let compra = {
-            idproduct,
+            id,
 			nombre,
 			precio,
 			img,
             idcategory,
+            stock,
 			cantidad: contador
 		}
         setCompra(true)
@@ -56,7 +57,7 @@ const ItemDetail = ({ detalleItem }) => {
                             </Typography>
 
                             {!compra
-                               ? < ItemCount stock = {5} initial = {1} onAdd = {onAdd} contador={contador} setContador={setContador}/>
+                               ? < ItemCount stock = {stock} initial = {1} onAdd = {onAdd} contador={contador} setContador={setContador}/>
                             : <Link to= "/Cart" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button variant="contained">Ir al carrito</Button></Link>}
                         </Stack>
                     </Stack>

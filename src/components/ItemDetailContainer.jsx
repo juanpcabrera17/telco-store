@@ -1,9 +1,9 @@
 import React from 'react';
 import ItemDetail from './ItemDetail';
 import { useState, useEffect } from 'react';
-import productos from './productos';
-import Grid from '@mui/material/Unstable_Grid2';
 import {useParams} from 'react-router-dom';
+import { collection, getDoc, doc } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
 
 export const ItemDetailContainer = () => {
 
@@ -11,28 +11,28 @@ export const ItemDetailContainer = () => {
 	const [detalleItem, setDetalleItem] = useState({});
 	const [loading, setLoading] = useState(true);
 
-	const {idcategory, idproduct} = useParams();
+	const {idcategory, id} = useParams();
 
-	console.log(idcategory, idproduct)
+	console.log(idcategory, id)
+
 
 	useEffect(() => {
-		let promesaDetalle = new Promise((resolve, reject) => {
-			setTimeout(() => {
-				resolve(productos);
-			}, 2000);
-		});
-
-		promesaDetalle
-			.then((res) => {
-				setDetalleItem(productos.find((product)=> product.idproduct == idproduct));
+		const coleccionProductos = collection(db, "products")
+		const referenciaDoc = doc(coleccionProductos, id)
+		getDoc(referenciaDoc)
+		.then((res)=>{
+			setDetalleItem({
+				id:res.id,
+				...res.data()
 			})
-			.catch((err) => {
-				console.log("No se pudo mostrar el detalle del producto")
-			})
-			.finally(() => {
-				setLoading(false);
-			})
-	}, []);
+		})
+		.catch((err) => {
+			console.log("No se pudo mostrar el detalle del producto")
+		})
+		.finally(() => {
+			setLoading(false);
+		})
+	},[])
 
 	console.log(detalleItem)
 

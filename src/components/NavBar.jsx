@@ -8,8 +8,6 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import logo from '../assets/logo.png'
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
@@ -17,28 +15,21 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
     };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
 
     return (
         <AppBar position="static" color='secondary'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Link to="/"><img src={logo} alt='logo' /></Link>
+                    <Link to="/"><img src={logo} alt='logo' onClick="window.location.reload()" /></Link>
                     <Typography
                         variant="h6"
                         noWrap
@@ -87,29 +78,26 @@ export default function NavBar() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                             <Link to="/category/antenas" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
-                            /* key={page} */
-                            onClick={handleCloseNavMenu}
-                            sx={{ my: 2, color: 'inherit', display: 'block' }}
-                        >
-                            <Typography textAlign="center">Antenas</Typography>
-                        </Button></Link>
+                            <Link to="/category/antenas" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }} ><Button
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'inherit', display: 'block' }}
+                            >
+                                <Typography textAlign="center">Antenas</Typography>
+                            </Button></Link>
 
-                        <Link to="/category/routers" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
-                            /* key={page} */
-                            onClick={handleCloseNavMenu}
-                            sx={{ my: 2, color: 'inherit', display: 'block' }}
-                        >
-                            <Typography textAlign="center">Routers</Typography>
-                        </Button></Link>
+                            <Link to="/category/routers" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'inherit', display: 'block' }}
+                            >
+                                <Typography textAlign="center">Routers</Typography>
+                            </Button></Link>
 
-                        <Link to="/category/switches" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
-                            /* key={page} */
-                            onClick={handleCloseNavMenu}
-                            sx={{ my: 2, color: 'inherit', display: 'block' }}
-                        >
-                            <Typography textAlign="center">Switches</Typography>
-                        </Button></Link>
+                            <Link to="/category/switches" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'inherit', display: 'block' }}
+                            >
+                                <Typography textAlign="center">Switches</Typography>
+                            </Button></Link>
                         </Menu>
                     </Box>
 
@@ -131,7 +119,7 @@ export default function NavBar() {
                     >
                         Telco-Store
                     </Typography>
-                    
+
                     <Typography
                         variant="h5"
                         noWrap
@@ -150,33 +138,30 @@ export default function NavBar() {
                     >
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            
-                    <Link to="/category/antenas" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
-                          
+
+                        <Link to="/category/antenas" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
+
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'inherit', display: 'block' }}
                         >
                             <Typography textAlign="center">Antenas</Typography>
                         </Button></Link>
 
-                        <Link to="/category/routers" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
-                           
+                        <Link to="/category/routers" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
+
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'inherit', display: 'block' }}
                         >
                             <Typography textAlign="center">Routers</Typography>
                         </Button></Link>
 
-                        <Link to="/category/switches" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button
-                          
+                        <Link to="/category/switches" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
+
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'inherit', display: 'block' }}
                         >
                             <Typography textAlign="center">Switches</Typography>
                         </Button></Link>
-
-
-                        
                     </Box>
                     <Box sx={{ flexGrow: 0 }}>
                         <CartWidget items={5}></CartWidget>
