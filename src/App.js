@@ -22,10 +22,10 @@ const greeting = "Bienvenido a Telco-Store, tu principal proveedor de insumos de
 				{/* //Componentes presentes en todas las rutas */}
 				<NavBar/>
     			<Routes>
-    				<Route path="/" element={<ItemListContainer/>}/>
+    				<Route path="/" element={<ItemListContainer greeting = {greeting}/>}/>
 					<Route path="/category/:idcategory" element={<ItemListContainer/>}/>
 					<Route path="/product/:idproduct" element={<ItemDetailContainer/>}/>
-    	    <Route path="/cart" element={<Cart/>}/>
+    	    		<Route path="/cart" element={<Cart/>}/>
     			</Routes>
     		</BrowserRouter>
    		</ThemeProvider>

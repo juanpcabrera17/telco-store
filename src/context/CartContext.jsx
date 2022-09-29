@@ -6,10 +6,10 @@ export const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([])
 
 	const addItem = (item) => {
-		const estaEnCarrito = cart.find((prod)=> prod.id === item.id)
+		const estaEnCarrito = cart.find((prod)=> prod.idproduct === item.idproduct)
 		if (estaEnCarrito){
 			const carritoActualizado = cart.map((prod)=>{
-				if (prod.id === item.id){
+				if (prod.idproduct === item.idproduct){
 					return {...prod,cantidad:prod.cantidad + item.cantidad}
 				}else{
 					return prod
@@ -21,8 +21,8 @@ export const CartProvider = ({ children }) => {
 		}
 	}
 
-	const removeItem = (id) => {
-		setCart(cart.filter((prod) => prod.id !== id))
+	const removeItem = (idproduct) => {
+		setCart(cart.filter((prod) => prod.idproduct !== idproduct))
 	}
 
 	const clear = () => {
@@ -33,8 +33,18 @@ export const CartProvider = ({ children }) => {
 		return cart.some((prod) => prod.id === id)
 	}
 
+	const cartCantidad = ()=>{
+		return cart.reduce((acumulador, prod)=> acumulador += prod.cantidad,0) 
+	}
+
+	const cartTotal = ()=>{
+		return cart.reduce((acumulador, prod)=> acumulador += prod.precio * prod.cantidad,0)
+
+	}
+
+
 	return (
-		<CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart }}>
+		<CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, cartCantidad, cartTotal}}>
 			{children}
 		</CartContext.Provider>
 	)

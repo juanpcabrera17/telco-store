@@ -62,7 +62,7 @@ const Item = ({ product }) => {
 				/>
 			</CardContent>
 			</CardActionArea></Link>
-			<ItemCount stock = {5} initial = {2} onAdd = {onAdd} contador={contador} setContador={setContador}/>
+			<ItemCount stock = {5} initial = {1} onAdd = {onAdd} contador={contador} setContador={setContador}/>
 		</Card>
 		</Box>
 	);

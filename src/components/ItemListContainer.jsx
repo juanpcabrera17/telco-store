@@ -45,7 +45,7 @@ export const ItemListContainer = (props) => {
 	console.log(listProductos)
 
 	return (
-		<Stack p={3} alignItems={"center"} direction={"row"}>
+		<Stack p={3} alignItems={"center"} direction={"column"}>
 			<Typography sx={{ mb: 4 }} variant="h6" color="text.primary" >
 				{greeting}
 			</Typography>
