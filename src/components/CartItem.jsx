@@ -22,7 +22,7 @@ const CartItem = ({ compra }) => {
             <TableCell align="center">{compra.nombre}</TableCell>
             <TableCell align="center">{compra.cantidad}</TableCell>
             <TableCell align="center">${compra.precio}</TableCell>
-            <IconButton sx={{ mt:11}} color="error" aria-label="delete" onClick={() => removeItem(compra.idproduct)}><DeleteIcon/></IconButton>
+            <IconButton sx={{ mt:11}} color="error" aria-label="delete" onClick={() => removeItem(compra.id)}><DeleteIcon/></IconButton>
         </>
     )
 }

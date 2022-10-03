@@ -45,13 +45,13 @@ export const Cart = () => {
 							<TableBody>
 								{cart.map(compra =>
 									<TableRow>
-										<CartItem key={compra.idproduct} compra={compra} />
+										<CartItem key={compra.id} compra={compra} />
 									</TableRow>
 								)}
 								<TableRow align="right" sx={{ padding: 650 }}>
 									<TableCell colSpan={2}>Total a pagar: ${cartTotal()}
 										<Button variant="contained" color="error" onClick={clear}>Vaciar carrito</Button>
-										<Button variant="contained">Terminar compra</Button>
+										<Link to="/comprar"><Button variant="contained">Terminar compra</Button></Link>
 									</TableCell>
 								</TableRow>
 							</TableBody>

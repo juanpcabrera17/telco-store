@@ -6,10 +6,10 @@ export const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([])
 
 	const addItem = (item) => {
-		const estaEnCarrito = cart.find((prod)=> prod.idproduct === item.idproduct)
+		const estaEnCarrito = cart.find((prod)=> prod.id === item.id)
 		if (estaEnCarrito){
 			const carritoActualizado = cart.map((prod)=>{
-				if (prod.idproduct === item.idproduct){
+				if (prod.id === item.id){
 					return {...prod,cantidad:prod.cantidad + item.cantidad}
 				}else{
 					return prod
@@ -21,8 +21,8 @@ export const CartProvider = ({ children }) => {
 		}
 	}
 
-	const removeItem = (idproduct) => {
-		setCart(cart.filter((prod) => prod.idproduct !== idproduct))
+	const removeItem = (id) => {
+		setCart(cart.filter((prod) => prod.id !== id))
 	}
 
 	const clear = () => {

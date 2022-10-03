@@ -14,9 +14,9 @@ export const ItemListContainer = (props) => {
 	const [listProductos, setlistProductos] = useState([]);
 	const [loading, setLoading] = useState(true);
 
-	const {idcategory, idproduct} = useParams();
+	const {idcategory, id} = useParams();
 
-	console.log('categoria: ', idcategory, 'idproducto: ', idproduct)
+	console.log('categoria: ', idcategory, 'idproducto: ', id)
 
 	useEffect(()=>{
 		const collectionRef = idcategory ? query(collection(db, "products"), where("idcategory", "==", idcategory)) : collection(db, "products")
@@ -37,7 +37,7 @@ export const ItemListContainer = (props) => {
 			setLoading(false);
 			
 		});
-	},[])
+	},[idcategory])
 	
 	
 	console.log(listProductos)

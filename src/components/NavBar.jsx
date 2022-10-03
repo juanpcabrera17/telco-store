@@ -78,21 +78,21 @@ export default function NavBar() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            <Link to="/category/antenas" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }} ><Button
+                            <Link to="/category/antenas" style={{ color: 'inherit', textDecoration: 'inherit' }} ><Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'inherit', display: 'block' }}
                             >
                                 <Typography textAlign="center">Antenas</Typography>
                             </Button></Link>
 
-                            <Link to="/category/routers" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
+                            <Link to="/category/routers" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'inherit', display: 'block' }}
                             >
                                 <Typography textAlign="center">Routers</Typography>
                             </Button></Link>
 
-                            <Link to="/category/switches" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
+                            <Link to="/category/switches" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'inherit', display: 'block' }}
                             >
@@ -139,7 +139,7 @@ export default function NavBar() {
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
-                        <Link to="/category/antenas" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
+                        <Link to="/category/antenas" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
 
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'inherit', display: 'block' }}
@@ -147,7 +147,7 @@ export default function NavBar() {
                             <Typography textAlign="center">Antenas</Typography>
                         </Button></Link>
 
-                        <Link to="/category/routers" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
+                        <Link to="/category/routers" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
 
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'inherit', display: 'block' }}
@@ -155,7 +155,7 @@ export default function NavBar() {
                             <Typography textAlign="center">Routers</Typography>
                         </Button></Link>
 
-                        <Link to="/category/switches" onClick="window.location.reload()" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
+                        <Link to="/category/switches" style={{ color: 'inherit', textDecoration: 'inherit' }}><Button
 
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'inherit', display: 'block' }}
