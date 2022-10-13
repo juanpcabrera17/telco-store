@@ -8,11 +8,11 @@ import { useState, useEffect } from 'react';
 import Alerts from './Alerts';
 
 
-export default function ItemCount({ stock, initial, onAdd, contador, setContador }) {
+export default function ItemCount({ stock, initial, onAdd, contador, setContador, limite}) {
 
     const sumar = () => {
         if (contador < stock) {
-            setContador(contador + 1);
+            setContador(contador + 1)
         } else {
             setAlert(Alerts)
         }
@@ -20,11 +20,14 @@ export default function ItemCount({ stock, initial, onAdd, contador, setContador
 
     const restar = () => {
         if (contador > initial) {
-            setContador(contador - 1);
+            setContador(contador - 1)
+            setAlert(false)
         }
     }
 
     const [alert, setAlert] = useState(false)
+
+
 
     return (
         <Stack>
@@ -43,7 +46,7 @@ export default function ItemCount({ stock, initial, onAdd, contador, setContador
 
             </Stack>
             {alert}
-            <Button variant="contained"
+            <Button disabled={limite} variant="contained"
                 onClick={onAdd}
             >
                 Agregar al carrito

@@ -8,7 +8,6 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import logo from '../assets/logo.png'
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
@@ -24,12 +23,12 @@ export default function NavBar() {
         setAnchorElNav(null);
     };
 
-
+    
     return (
-        <AppBar position="static" color='secondary'>
+    <AppBar position="static" color='secondary'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Link to="/"><img src={logo} alt='logo' onClick="window.location.reload()" /></Link>
+                    <Link to="/"><img src="https://i.ibb.co/NKmPZ9s/logo.png" alt='logo' /></Link>
                     <Typography
                         variant="h6"
                         noWrap

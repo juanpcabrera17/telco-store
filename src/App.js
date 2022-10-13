@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import { ItemListContainer } from './components/ItemListContainer';
 import { ThemeProvider } from '@emotion/react';
 import theme from './MuiTheme';
@@ -8,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Cart } from './components/Cart';
 import { CartProvider } from './context/CartContext';
 import { Comprar } from './components/Comprar';
+
 
 
 
@@ -27,6 +29,7 @@ const greeting = "Bienvenido a Telco-Store, tu principal proveedor de insumos de
     	    		<Route path="/cart" element={<Cart/>}/>
     	    		<Route path="/comprar" element={<Comprar/>}/>
     			</Routes>
+				<Footer/>
     		</BrowserRouter>
    		</ThemeProvider>
 	</CartProvider>
